@@ -1,3 +1,6 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #pragma once
 #include <iostream>
 #include <string>
@@ -14,3 +17,5 @@ public:
 };
 
 ostream &operator<<(ostream &OutPut, Student &Stu); //重载<<运算符
+
+#endif

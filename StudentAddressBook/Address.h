@@ -1,3 +1,6 @@
+#ifndef ADDRESS_H
+#define ADDRESS_H
+
 #pragma once
 #include <iostream>
 #include <map>
@@ -29,6 +32,7 @@ public:
 	void Modify();					 //修改联系人信息
 	~Address();						 //析构函数
 
-public:
 	map<string, Student> MyList; //存储联系人
 };
+
+#endif
