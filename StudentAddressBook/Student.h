@@ -1,13 +1,15 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 using namespace std;
-#include<string>
+#include <string>
+
 class Student
 {
 public:
-	string Name;//ĞÕÃû
-	string PhoneNumber;//µç»°ºÅÂë
-	string Gender;//ĞÔ±ğ
-	friend ostream& operator <<(ostream& OutPut, Student& Stu);
+	string Name;		//å§“å
+	string PhoneNumber; //ç”µè¯å·ç 
+	string Gender;		//æ€§åˆ«
+	friend ostream &operator<<(ostream &OutPut, Student &Stu);
 };
-ostream& operator<<(ostream& OutPut, Student& Stu);//ÖØÔØ<<ÔËËã·û
+
+ostream &operator<<(ostream &OutPut, Student &Stu); //é‡è½½<<è¿ç®—ç¬¦

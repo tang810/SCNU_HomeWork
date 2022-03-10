@@ -1,141 +1,145 @@
-#include"Address.h"
+#include "Address.h"
+
 Address::Address()
 {
-	this->MyList.clear();//Çå¿ÕÈİÆ÷
+	this->MyList.clear(); //æ¸…ç©ºå®¹å™¨
 }
-void Address::ShowMenu() //ÏÔÊ¾²Ëµ¥
+
+void Address::ShowMenu() //æ˜¾ç¤ºèœå•
 {
-	cout  << "----------Ñ§ÉúÍ¨Ñ¶Â¼---------" << endl;
-	cout  << "0¡¢ÍË³öÍ¨Ñ¶Â¼ÏµÍ³" << endl;
-	cout  << "1¡¢Ìí¼ÓÁªÏµÈË" << endl;
-	cout  << "2¡¢É¾³ıÁªÏµÈË" << endl;
-	cout  << "3¡¢²éÕÒÁªÏµÈË" << endl;
-	cout  << "4¡¢²é¿´ËùÓĞÁªÏµÈË" << endl;
-	cout  << "5¡¢ĞŞ¸ÄÒÑÓĞÁªÏµÈËĞÅÏ¢" << endl;
-};
-void Address::ExitSystem()//ÍË³öÏµÍ³
+	cout << "----------å­¦ç”Ÿé€šè®¯å½•---------" << endl;
+	cout << "0ã€é€€å‡ºé€šè®¯å½•ç³»ç»Ÿ" << endl;
+	cout << "1ã€æ·»åŠ è”ç³»äºº" << endl;
+	cout << "2ã€åˆ é™¤è”ç³»äºº" << endl;
+	cout << "3ã€æŸ¥æ‰¾è”ç³»äºº" << endl;
+	cout << "4ã€æŸ¥çœ‹æ‰€æœ‰è”ç³»äºº" << endl;
+	cout << "5ã€ä¿®æ”¹å·²æœ‰è”ç³»äººä¿¡æ¯" << endl;
+}
+
+void Address::ExitSystem() //é€€å‡ºç³»ç»Ÿ
 {
-	cout << "»¶Ó­ÏÂ´ÎÊ¹ÓÃ£¡" << endl;
+	cout << "æ¬¢è¿ä¸‹æ¬¡ä½¿ç”¨ï¼" << endl;
 	exit(0);
 }
-void Address::AddMember()//Ìí¼ÓÁªÏµÈË
+
+void Address::AddMember() //æ·»åŠ è”ç³»äºº
 {
 	Student NewMember;
-	cout << "ÇëÊäÈëĞÕÃû£º" << endl;
+	cout << "è¯·è¾“å…¥å§“åï¼š" << endl;
 	cin.ignore();
 	getline(cin, NewMember.Name);
-	cout << "ÇëÊäÈëµç»°ºÅÂë£º" << endl;
+	cout << "è¯·è¾“å…¥ç”µè¯å·ç ï¼š" << endl;
 	cin >> NewMember.PhoneNumber;
-	cout << "ÇëÊäÈëĞÔ±ğ£º(Male or Female)" << endl;
+	cout << "è¯·è¾“å…¥æ€§åˆ«ï¼š(Male or Female)" << endl;
 	cin >> NewMember.Gender;
-	this->AppSave(NewMember);//±£´æĞÂÔöÁªÏµÈË
+	this->AppSave(NewMember); //ä¿å­˜æ–°å¢è”ç³»äºº
 }
-void Address::AppSave(Student NewMember)//±£´æĞÂÔöÁªÏµÈË
+
+void Address::AppSave(Student NewMember) //ä¿å­˜æ–°å¢è”ç³»äºº
 {
 	ofstream ofs;
-	ofs.open(FILENAME, ios::out | ios::app);//ÒÔ×·¼Ó·½Ê½Ğ´ÎÄ¼ş
-	ofs << NewMember.Name << "," << NewMember.Gender << "," << NewMember.PhoneNumber<<"," << endl;
+	ofs.open(FILENAME, ios::out | ios::app); //ä»¥è¿½åŠ æ–¹å¼å†™æ–‡ä»¶
+	ofs << NewMember.Name << "," << NewMember.Gender << "," << NewMember.PhoneNumber << "," << endl;
 	ofs.close();
-	cout << "Ìí¼ÓÁªÏµÈË³É¹¦£¡" << endl;
+	cout << "æ·»åŠ è”ç³»äººæˆåŠŸï¼" << endl;
 	system("pause");
 	system("cls");
 }
-void Address::LoadMember()//¼ÓÔØÒÑÓĞÁªÏµÈË
+
+void Address::LoadMember() //åŠ è½½å·²æœ‰è”ç³»äºº
 {
 	ifstream ifs;
 	ifs.open(FILENAME, ios::in);
-	//ÎÄ¼ş²»´æÔÚÇé¿ö
+	//æ–‡ä»¶ä¸å­˜åœ¨æƒ…å†µ
 	if (!ifs.is_open())
 	{
-		cout << "ÎÄ¼ş²»´æÔÚ£¡" << endl;
+		cout << "æ–‡ä»¶ä¸å­˜åœ¨ï¼" << endl;
 		system("pause");
 		system("cls");
 		ifs.close();
 		return;
 	}
-	//ÎÄ¼ş±»Çå¿ÕÇé¿ö
-	char Check;//²é¿´ÊÇ·ñÎª¿ÕÎÄ¼ş¼Ğ
+	//æ–‡ä»¶è¢«æ¸…ç©ºæƒ…å†µ
+	char Check; //æŸ¥çœ‹æ˜¯å¦ä¸ºç©ºæ–‡ä»¶å¤¹
 	ifs >> Check;
 	if (ifs.eof())
 	{
-		cout << "ÎÄ¼şÎª¿Õ£¡" << endl;
+		cout << "æ–‡ä»¶ä¸ºç©ºï¼" << endl;
 		system("pause");
 		system("cls");
 		return;
 	}
-	//ÎÄ¼ş²»Îª¿Õ
+	//æ–‡ä»¶ä¸ä¸ºç©º
 	ifs.putback(Check);
 	string Information;
-	while (getline(ifs,Information))//ĞÕÃû¿É´ø¿Õ¸ñµÄÊäÈë
+	while (getline(ifs, Information)) //å§“åå¯å¸¦ç©ºæ ¼çš„è¾“å…¥
 	{
-		/*cout << Information<<endl;*///²âÊÔ´úÂë
+		/*cout << Information<<endl;*/ //æµ‹è¯•ä»£ç 
 		Student Temp;
 		int Start = 0;
 		int Pos = -1;
-		int index=0;
+		int index = 0;
 		string Data[4];
 		while (1)
 		{
-			Pos = Information.find(',',Start);
+			Pos = Information.find(',', Start);
 			if (Pos == -1)
 			{
 				break;
 			}
-			Data[index++]= Information.substr(Start, Pos-Start);
+			Data[index++] = Information.substr(Start, Pos - Start);
 			Start = Pos + 1;
-
 		}
 		Temp.Name = Data[0];
 		Temp.Gender = Data[1];
-		Temp.PhoneNumber= Data[2];
-		this->MyList[Temp.Name] = Temp;//½«³ÉÔ±·ÅÈëÃûµ¥ÈİÆ÷ÖĞ
-		
+		Temp.PhoneNumber = Data[2];
+		this->MyList[Temp.Name] = Temp; //å°†æˆå‘˜æ”¾å…¥åå•å®¹å™¨ä¸­
 	}
-	
 }
-void Address::ShowAllMember()//²é¿´ËùÓĞÁªÏµÈË
+
+void Address::ShowAllMember() //æŸ¥çœ‹æ‰€æœ‰è”ç³»äºº
 {
 	this->LoadMember();
 	for (auto It = this->MyList.begin(); It != this->MyList.end(); It++)
 	{
-		/*cout << "ĞÕÃû£º" << It->second.Name << " ĞÔ±ğ£º " << It->second.Gender << " ºÅÂë£º" << It->second.PhoneNumber << endl;*/
+		/*cout << "å§“åï¼š" << It->second.Name << " æ€§åˆ«ï¼š " << It->second.Gender << " å·ç ï¼š" << It->second.PhoneNumber << endl;*/
 		cout << It->second;
 	}
 	system("pause");
 	system("cls");
-
 }
-void Address::FindMember()//²éÕÒÁªÏµÈË
+
+void Address::FindMember() //æŸ¥æ‰¾è”ç³»äºº
 {
-	cout << "ÇëÊäÈëÒª²éÕÒµÄÁªÏµÈËµÄĞÕÃû:" << endl;
+	cout << "è¯·è¾“å…¥è¦æŸ¥æ‰¾çš„è”ç³»äººçš„å§“å:" << endl;
 	string SearchName;
 	cin >> SearchName;
-	auto It=this->MyList.find(SearchName);//°´Ãû×Ö²éÕÒ
+	auto It = this->MyList.find(SearchName); //æŒ‰åå­—æŸ¥æ‰¾
 	if (It == MyList.end())
 	{
-		cout << "²éÎŞ´ËÁªÏµÈË£¡" << endl;
+		cout << "æŸ¥æ— æ­¤è”ç³»äººï¼" << endl;
 		system("pause");
 		system("cls");
 		return;
 	}
 	else
 	{
-		cout << "²éÑ¯½á¹ûÈçÏÂ£º" << endl;
-		cout << It->second; 
+		cout << "æŸ¥è¯¢ç»“æœå¦‚ä¸‹ï¼š" << endl;
+		cout << It->second;
 		system("pause");
 		system("cls");
 	}
-	
 }
-void Address::DeleteMember()//É¾³ıÁªÏµÈË
+
+void Address::DeleteMember() //åˆ é™¤è”ç³»äºº
 {
-	cout << "ÊäÈë½øĞĞÉ¾³ıµÄÁªÏµÈËµÄĞÕÃû: " << endl;
+	cout << "è¾“å…¥è¿›è¡Œåˆ é™¤çš„è”ç³»äººçš„å§“å: " << endl;
 	string SearchName;
 	cin >> SearchName;
 	auto It = this->MyList.find(SearchName);
 	if (It == this->MyList.end())
 	{
-		cout << "²éÎŞ´ËÁªÏµÈË£¡" << endl;
+		cout << "æŸ¥æ— æ­¤è”ç³»äººï¼" << endl;
 		system("pause");
 		system("cls");
 		return;
@@ -143,13 +147,14 @@ void Address::DeleteMember()//É¾³ıÁªÏµÈË
 	else
 	{
 		this->MyList.erase(It);
-		cout << "É¾³ı³É¹¦£¡" << endl;
+		cout << "åˆ é™¤æˆåŠŸï¼" << endl;
 		system("pause");
 		system("cls");
 	}
 	this->AllSave();
 }
-void Address::AllSave()//¸²¸Ç±£´æËùÓĞÁªÏµÈË
+
+void Address::AllSave() //è¦†ç›–ä¿å­˜æ‰€æœ‰è”ç³»äºº
 {
 	ofstream ofs;
 	ofs.open(FILENAME, ios::out);
@@ -158,43 +163,42 @@ void Address::AllSave()//¸²¸Ç±£´æËùÓĞÁªÏµÈË
 		ofs << It->second.Name << "," << It->second.Gender << "," << It->second.PhoneNumber << "," << endl;
 	}
 	ofs.close();
-
 }
-void Address::Modify()//ĞŞ¸ÄÁªÏµÈËĞÅÏ¢
+
+void Address::Modify() //ä¿®æ”¹è”ç³»äººä¿¡æ¯
 {
-	cout << "ÇëÊäÈë½øĞĞĞŞ¸ÄµÄÁªÏµÈËµÄĞÕÃû£º" << endl;
+	cout << "è¯·è¾“å…¥è¿›è¡Œä¿®æ”¹çš„è”ç³»äººçš„å§“åï¼š" << endl;
 	string SearchName;
 	cin >> SearchName;
 	auto It = this->MyList.find(SearchName);
 	if (It == this->MyList.end())
 	{
-		cout << "²éÎŞ´ËÁªÏµÈË£¡" << endl;
+		cout << "æŸ¥æ— æ­¤è”ç³»äººï¼" << endl;
 		system("pause");
 		system("cls");
 		return;
 	}
 	else
 	{
-		cout << "²éÑ¯½á¹ûÈçÏÂ£º" << endl;
+		cout << "æŸ¥è¯¢ç»“æœå¦‚ä¸‹ï¼š" << endl;
 		cout << It->second;
 	}
-	this->MyList.erase(It);//É¾³ıĞŞ¸ÄÇ°µÄÁªÏµÈË
+	this->MyList.erase(It); //åˆ é™¤ä¿®æ”¹å‰çš„è”ç³»äºº
 	Student NewMember;
-	cout << "ÇëÊäÈëĞÕÃû£º" << endl;
+	cout << "è¯·è¾“å…¥å§“åï¼š" << endl;
 	cin.ignore();
 	getline(cin, NewMember.Name);
-	cout << "ÇëÊäÈëµç»°ºÅÂë£º" << endl;
+	cout << "è¯·è¾“å…¥ç”µè¯å·ç ï¼š" << endl;
 	cin >> NewMember.PhoneNumber;
-	cout << "ÇëÊäÈëĞÔ±ğ£º(Male or Female)" << endl;
+	cout << "è¯·è¾“å…¥æ€§åˆ«ï¼š(Male or Female)" << endl;
 	cin >> NewMember.Gender;
 	this->MyList.insert(make_pair(NewMember.Name, NewMember));
-	cout << "ĞŞ¸Ä³É¹¦£¡" << endl;
-	this->AllSave();//±£´æ
+	cout << "ä¿®æ”¹æˆåŠŸï¼" << endl;
+	this->AllSave(); //ä¿å­˜
 	system("pause");
 	system("cls");
-	
 }
+
 Address::~Address()
 {
-
 }

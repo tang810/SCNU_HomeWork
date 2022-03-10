@@ -1,32 +1,32 @@
 #pragma once
-#include<iostream>
+#include <iostream>
 using namespace std;
-#include"Student.h"
-#include<map>
-#include<iomanip>
-#include<vector>
-#include"Student.h"
-#include<string>
-#include<algorithm>
-#include<fstream>
-#define  FILENAME "NameList.csv"//±£´æÍ¨Ñ¶Â¼Ãûµ¥ÔÚÃûÎª NameList µÄÎÄ¼şÖĞ
+#include "Student.h"
+#include <map>
+#include <iomanip>
+#include <vector>
+#include "Student.h"
+#include <string>
+#include <algorithm>
+#include <fstream>
+#define FILENAME "NameList.csv" //ä¿å­˜é€šè®¯å½•åå•åœ¨åä¸º NameList çš„æ–‡ä»¶ä¸­
+
 class Address
 {
 public:
-	Address();//¹¹Ôìº¯Êı
-	void ShowMenu();//ÏÔÊ¾²Ëµ¥
-	void ExitSystem();//ÍË³öÏµÍ³
-	void AddMember();//Ìí¼ÓÁªÏµÈË
-	void AppSave(Student NewMember);//±£´æĞÂÔöÁªÏµÈË
-	void AllSave();//¸²¸Ç±£´æËùÓĞÁªÏµÈË
-	void LoadMember();//¶ÁÈëËùÓĞÁªÏµÈË
-	void ShowAllMember();//²é¿´ËùÓĞÁªÏµÈË
-	void FindMember();//²éÕÒÁªÏµÈË
-	void DeleteMember();//É¾³ıÁªÏµÈË
-	void Modify();//ĞŞ¸ÄÁªÏµÈËĞÅÏ¢
-	~Address(); //Îö¹¹º¯Êı
+	Address();						 //æ„é€ å‡½æ•°
+	void ShowMenu();				 //æ˜¾ç¤ºèœå•
+	void ExitSystem();				 //é€€å‡ºç³»ç»Ÿ
+	void AddMember();				 //æ·»åŠ è”ç³»äºº
+	void AppSave(Student NewMember); //ä¿å­˜æ–°å¢è”ç³»äºº
+	void AllSave();					 //è¦†ç›–ä¿å­˜æ‰€æœ‰è”ç³»äºº
+	void LoadMember();				 //è¯»å…¥æ‰€æœ‰è”ç³»äºº
+	void ShowAllMember();			 //æŸ¥çœ‹æ‰€æœ‰è”ç³»äºº
+	void FindMember();				 //æŸ¥æ‰¾è”ç³»äºº
+	void DeleteMember();			 //åˆ é™¤è”ç³»äºº
+	void Modify();					 //ä¿®æ”¹è”ç³»äººä¿¡æ¯
+	~Address();						 //ææ„å‡½æ•°
 
 public:
-	map<string, Student>MyList;//´æ´¢ÁªÏµÈË
-
+	map<string, Student> MyList; //å­˜å‚¨è”ç³»äºº
 };

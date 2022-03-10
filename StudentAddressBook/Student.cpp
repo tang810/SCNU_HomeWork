@@ -1,6 +1,7 @@
-#include"Student.h"
-ostream& operator<<(ostream& OutPut, Student& Stu)
+#include "Student.h"
+
+ostream &operator<<(ostream &OutPut, Student &Stu)
 {
-	OutPut << "ÐÕÃû: " << Stu.Name << " ÐÔ±ð£º" << Stu.Gender << " ºÅÂë£º" << Stu.PhoneNumber << endl;
+	OutPut << "å§“å: " << Stu.Name << " æ€§åˆ«ï¼š" << Stu.Gender << " å·ç ï¼š" << Stu.PhoneNumber << endl;
 	return OutPut;
 }

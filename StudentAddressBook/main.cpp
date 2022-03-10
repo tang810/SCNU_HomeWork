@@ -1,6 +1,7 @@
-#include<iostream>
-#include"Address.h"
+#include <iostream>
+#include "Address.h"
 using namespace std;
+
 int main()
 {
 	Address Main;
@@ -12,25 +13,25 @@ int main()
 		switch (Select)
 		{
 		case 0:
-			Main.ExitSystem();//ÍË³ö³ÌĞò
+			Main.ExitSystem(); //é€€å‡ºç¨‹åº
 			break;
 		case 1:
-			Main.AddMember();//Ôö¼ÓĞÂµÄÁªÏµÈË
+			Main.AddMember(); //å¢åŠ æ–°çš„è”ç³»äºº
 			break;
 		case 2:
-			Main.DeleteMember();//É¾³ıÁªÏµÈË
+			Main.DeleteMember(); //åˆ é™¤è”ç³»äºº
 			break;
 		case 3:
-			Main.FindMember();//²éÕÒÁªÏµÈË
+			Main.FindMember(); //æŸ¥æ‰¾è”ç³»äºº
 			break;
 		case 4:
-			Main.ShowAllMember();//²é¿´ËùÓĞÁªÏµÈË
+			Main.ShowAllMember(); //æŸ¥çœ‹æ‰€æœ‰è”ç³»äºº
 			break;
 		case 5:
-			Main.Modify();//ĞŞ¸ÄÒÑÓĞÁªÏµÈË
+			Main.Modify(); //ä¿®æ”¹å·²æœ‰è”ç³»äºº
 			break;
-		default :
-			cout << "ÊäÈëÓĞÎó£¬ÇëÖØĞÂÊäÈë£¡" << endl;
+		default:
+			cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥ï¼" << endl;
 			system("pause");
 			system("cls");
 			break;
