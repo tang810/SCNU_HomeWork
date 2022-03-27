@@ -1,7 +1,6 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-#pragma once
 #include <iostream>
 #include <string>
 

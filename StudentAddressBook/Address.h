@@ -1,7 +1,6 @@
 #ifndef ADDRESS_H
 #define ADDRESS_H
 
-#pragma once
 #include <iostream>
 #include <map>
 #include <iomanip>
